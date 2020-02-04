@@ -1,20 +1,20 @@
 package com.catalog.MTGCardCatalog;
 
 import com.catalog.MTGCardCatalog.card.CardService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class ProgramController {
 
-    private CardService cardService;
+    private final CardService cardService;
 
-    @Autowired
     public ProgramController(CardService cardService) {
         this.cardService = cardService;
     }
 
-
-
-
+    @GetMapping("/")
+    public String startPage() {
+        return "startPage";
+    }
 }

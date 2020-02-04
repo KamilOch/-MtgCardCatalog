@@ -12,4 +12,9 @@ public class CardService {
     public CardService(CardEntityRepository cardEntityRepository) {
         this.cardEntityRepository = cardEntityRepository;
     }
+
+    public void addCard(String name){
+        CardEntity newCard = CardEntity.builder().name(name).build();
+        cardEntityRepository.save(newCard);
+    }
 }
