@@ -71,6 +71,12 @@
 			<artifactId>spring-data-rest-core</artifactId>
 		</dependency>
 
+		<dependency>
+			<groupId>com.querydsl</groupId>
+			<artifactId>querydsl-jpa</artifactId>
+			<version>4.2.1</version>
+		</dependency>
+
 		<!--moje importy koniec!!!!-->
 
 	</dependencies>

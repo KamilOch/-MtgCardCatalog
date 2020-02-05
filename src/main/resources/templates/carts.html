@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Catd list</title>
+</head>
+<body>
+
+<h2>Current card list</h2>
+
+<table>
+    <thead>
+    <th>Id</th>
+    <th>Name</th>
+    </thead>
+    <tbody>
+    <tr th:each ="card : ${cards}">
+        <td><span th:text ="${card.id}">id</span></td>
+        <td><span th:text ="${card.name}">name</span></td>
+    </tr>
+    </tbody>
+</table>
+
+<br/>
+<form action="/">
+    <input type="submit" value="Go to start page">
+</form>
+
+
+</body>
+</html>

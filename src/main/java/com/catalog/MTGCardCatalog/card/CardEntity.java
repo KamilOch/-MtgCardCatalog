@@ -5,12 +5,13 @@ import lombok.*;
 import javax.persistence.*;
 
 @Builder
+@Data
 
 
 @Entity
 @Table(name = "cards")
 @SequenceGenerator(name = "CARD_SEQ", sequenceName = "card_id_seq", allocationSize = 1)
-public class CardEntity {
+class CardEntity {
 
     @Setter(AccessLevel.NONE)
     @Id

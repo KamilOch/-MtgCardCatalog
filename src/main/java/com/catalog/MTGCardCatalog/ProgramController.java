@@ -2,6 +2,7 @@ package com.catalog.MTGCardCatalog;
 
 import com.catalog.MTGCardCatalog.card.CardService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
@@ -17,4 +18,11 @@ public class ProgramController {
     public String startPage() {
         return "startPage";
     }
+
+    @GetMapping("/cardsList")
+    public String cardsList(Model model) {
+        model.addAttribute("cards", cardService.getAllCards());
+        return "carts";
+    }
+
 }
