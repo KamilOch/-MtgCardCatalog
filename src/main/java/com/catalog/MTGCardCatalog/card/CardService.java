@@ -3,7 +3,6 @@ package com.catalog.MTGCardCatalog.card;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -23,28 +22,22 @@ public class CardService {
     }
 
     public List<CardEntity> getAllCards() {
-        //TODO
         return  cardEntityRepository.findAll().stream()
                 .map(it -> new CardEntity(it.getId(),it.getName())).collect(Collectors.toList());
-
-//        List<CardEntity> testList = new ArrayList<>();
-//        testList.add(CardEntity.builder().name("testCard1").build());
-//        testList.add(CardEntity.builder().name("testCard2").build());
-//        testList.add(CardEntity.builder().name("testCard3").build());
-//        cardEntityRepository.saveAll(testList);
-
-//        return testList;
     }
 
     public CardEntity findById(long id){
-        CardEntity entity = cardEntityRepository.findById(id).orElseThrow(IllegalArgumentException::new);
-        return entity;
+        return cardEntityRepository.findById(id).orElseThrow(IllegalArgumentException::new);
     }
 
     public void editCard(long id, String name) {
         CardEntity editedCard = findById(id);
         editedCard.setName(name);
         cardEntityRepository.save(editedCard);
+    }
 
+    public void deleteCardById(int id) {
+        CardEntity deletedCard = findById(id);
+        cardEntityRepository.delete(deletedCard);
     }
 }

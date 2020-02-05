@@ -25,6 +25,13 @@
             </form>
         </td>
 
+        <td>
+            <form th:action="@{deleteCard/{id}(id=${card.id})}" th:object="${card}">
+                <input type="hidden" field="${card}">
+                <input type="submit" value="Delete">
+            </form>
+        </td>
+
     </tr>
     </tbody>
 </table>
