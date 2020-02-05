@@ -21,7 +21,7 @@ class CardEntity {
     @Column(name = "id")
     private long id;
 
-    @Column( name = "name")
+    @Column(name = "name")
     private String name;
 
 

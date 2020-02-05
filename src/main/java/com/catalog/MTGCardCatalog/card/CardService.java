@@ -22,11 +22,11 @@ public class CardService {
     }
 
     public List<CardEntity> getAllCards() {
-        return  cardEntityRepository.findAll().stream()
-                .map(it -> new CardEntity(it.getId(),it.getName())).collect(Collectors.toList());
+        return cardEntityRepository.findAll().stream()
+                .map(it -> new CardEntity(it.getId(), it.getName())).collect(Collectors.toList());
     }
 
-    public CardEntity findById(long id){
+    public CardEntity findById(long id) {
         return cardEntityRepository.findById(id).orElseThrow(IllegalArgumentException::new);
     }
 
