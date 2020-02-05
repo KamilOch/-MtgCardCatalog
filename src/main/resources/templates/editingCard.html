@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Editing car page</title>
+</head>
+<body>
+
+<h2> Edit card</h2>
+<br/>
+<form action="/saveEditedCard">
+    <input type="hidden" name="cardId" th:value="${editedCard.id}">
+    <p>New card name: <input id="cardName" name="cardName" th:value="${editedCard.name}"></p>
+    <input type="submit" value="Confirm">
+</form>
+<br/>
+<form action="/cardList">
+    <input type="submit" value="Go to card list">
+</form>
+
+<br/>
+<form action="/">
+    <input type="submit" value="Go to car list">
+</form>
+
+
+
+</body>
+</html>

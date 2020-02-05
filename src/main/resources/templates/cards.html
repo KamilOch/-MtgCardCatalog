@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8"/>
-    <title>Catd list</title>
+    <title>Cards list</title>
 </head>
 <body>
 
@@ -17,6 +17,14 @@
     <tr th:each ="card : ${cards}">
         <td><span th:text ="${card.id}">id</span></td>
         <td><span th:text ="${card.name}">name</span></td>
+
+        <td>
+            <form th:action="@{/editCard/{id}(id=${card.id})}" th:object="${card}">
+                <input type="hidden" field="${card}">
+                <input type="submit" value="Edit">
+            </form>
+        </td>
+
     </tr>
     </tbody>
 </table>
@@ -25,6 +33,11 @@
 <form action="/">
     <input type="submit" value="Go to start page">
 </form>
+<br/>
+<form action="/addCard">
+    <input type="submit" name="Go to adding cards page">
+</form>
+
 
 
 </body>

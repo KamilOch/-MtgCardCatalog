@@ -24,14 +24,27 @@ public class CardService {
 
     public List<CardEntity> getAllCards() {
         //TODO
-      //  return cardEntityRepository.findAll().stream().map(it -> new CardEntity(it.getId(),it.getName())).collect(Collectors.toList());
+        return  cardEntityRepository.findAll().stream()
+                .map(it -> new CardEntity(it.getId(),it.getName())).collect(Collectors.toList());
 
-        List<CardEntity> testList = new ArrayList<>();
-        testList.add(CardEntity.builder().name("testCard1").build());
-        testList.add(CardEntity.builder().name("testCard2").build());
-        testList.add(CardEntity.builder().name("testCard3").build());
+//        List<CardEntity> testList = new ArrayList<>();
+//        testList.add(CardEntity.builder().name("testCard1").build());
+//        testList.add(CardEntity.builder().name("testCard2").build());
+//        testList.add(CardEntity.builder().name("testCard3").build());
+//        cardEntityRepository.saveAll(testList);
 
-        cardEntityRepository.saveAll(testList);
-        return testList;
+//        return testList;
+    }
+
+    public CardEntity findById(long id){
+        CardEntity entity = cardEntityRepository.findById(id).orElseThrow(IllegalArgumentException::new);
+        return entity;
+    }
+
+    public void editCard(long id, String name) {
+        CardEntity editedCard = findById(id);
+        editedCard.setName(name);
+        cardEntityRepository.save(editedCard);
+
     }
 }
